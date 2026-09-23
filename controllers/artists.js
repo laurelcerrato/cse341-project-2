@@ -43,6 +43,10 @@ const getSingle = async (req, res) => {
 
 const createArtist = async (req, res) => {
     //#swagger.tags=['Artists']
+    const { firstName, genre, country } = req.body;
+    if (!firstName || !genre || !country) {
+        return res.status(400).json({ message: 'firstName, genre, and country are required.' });
+    }
     try {
         const response = await getCollection().insertOne(buildArtist(req.body));
         if (response.acknowledged) {
@@ -59,6 +63,10 @@ const updateArtist = async (req, res) => {
     //#swagger.tags=['Artists']
     if (!ObjectId.isValid(req.params.id)) {
         return res.status(400).json('Must use a valid artist id');
+    }
+    const { firstName, genre, country } = req.body;
+    if (!firstName || !genre || !country) {
+        return res.status(400).json({ message: 'firstName, genre, and country are required.' });
     }
     try {
         const response = await getCollection().replaceOne(

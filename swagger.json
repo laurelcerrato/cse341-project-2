@@ -42,20 +42,15 @@
                 "lastName": { "type": "string" },
                 "genre": { "type": "string" },
                 "country": { "type": "string" },
-                "albums": {
-                  "type": "array",
-                  "items": { "type": "string" }
-                },
-                "popularSongs": {
-                  "type": "array",
-                  "items": { "type": "string" }
-                }
+                "albums": { "type": "array", "items": { "type": "string" } },
+                "popularSongs": { "type": "array", "items": { "type": "string" } }
               }
             }
           }
         ],
         "responses": {
           "201": { "description": "Created" },
+          "400": { "description": "Bad Request" },
           "500": { "description": "Internal Server Error" }
         }
       }
@@ -91,14 +86,8 @@
                 "lastName": { "type": "string" },
                 "genre": { "type": "string" },
                 "country": { "type": "string" },
-                "albums": {
-                  "type": "array",
-                  "items": { "type": "string" }
-                },
-                "popularSongs": {
-                  "type": "array",
-                  "items": { "type": "string" }
-                }
+                "albums": { "type": "array", "items": { "type": "string" } },
+                "popularSongs": { "type": "array", "items": { "type": "string" } }
               }
             }
           }
@@ -112,6 +101,100 @@
       },
       "delete": {
         "tags": ["Artists"],
+        "description": "",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "type": "string" }
+        ],
+        "responses": {
+          "204": { "description": "No Content" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+    "/albums/": {
+      "get": {
+        "tags": ["Albums"],
+        "description": "",
+        "responses": {
+          "200": { "description": "OK" },
+          "500": { "description": "Internal Server Error" }
+        }
+      },
+      "post": {
+        "tags": ["Albums"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "required": ["title", "artistId", "releaseYear"],
+              "properties": {
+                "title": { "type": "string" },
+                "artistId": { "type": "string" },
+                "releaseYear": { "type": "integer" },
+                "genre": { "type": "string" },
+                "tracks": { "type": "array", "items": { "type": "string" } }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": { "description": "Created" },
+          "400": { "description": "Bad Request" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+    "/albums/{id}": {
+      "get": {
+        "tags": ["Albums"],
+        "description": "",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "type": "string" }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" },
+          "500": { "description": "Internal Server Error" }
+        }
+      },
+      "put": {
+        "tags": ["Albums"],
+        "description": "",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "type": "string" },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "required": ["title", "artistId", "releaseYear"],
+              "properties": {
+                "title": { "type": "string" },
+                "artistId": { "type": "string" },
+                "releaseYear": { "type": "integer" },
+                "genre": { "type": "string" },
+                "tracks": { "type": "array", "items": { "type": "string" } }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": { "description": "No Content" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" },
+          "500": { "description": "Internal Server Error" }
+        }
+      },
+      "delete": {
+        "tags": ["Albums"],
         "description": "",
         "parameters": [
           { "name": "id", "in": "path", "required": true, "type": "string" }

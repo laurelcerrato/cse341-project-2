@@ -36,3 +36,47 @@ content-type: application/json
 }
 ### DELETE contact
 DELETE http://localhost:3000/artists/6ab342c1861f186ce11f76f7 HTTP/1.1
+
+### Albums Collections
+### LOCALHOST - Albums
+
+### Get all albums
+GET http://localhost:3000/albums
+
+### Get album by id
+GET http://localhost:3000/albums/ID_AQUI
+
+### Create album
+POST http://localhost:3000/albums HTTP/1.1
+content-type: application/json
+
+{
+  "title": "No.6 Collaborations Project",
+  "artistId": "6ab34319861f186ce11f76f9",
+  "releaseYear": 2019,
+  "genre": "Pop",
+  "tracks": ["I Don't Care", "Beautiful People", "South of the Border"]
+}
+
+### Test validation (should return 400)
+POST http://localhost:3000/albums HTTP/1.1
+content-type: application/json
+
+{
+  "genre": "Pop"
+}
+
+### PUT album
+PUT http://localhost:3000/albums/6ab3e2f7a6c146c62293f3fc HTTP/1.1
+content-type: application/json
+
+{
+  "title": "Un Verano Sin Ti",
+  "artistId": "6ab35d59c0e487d33d237bac",
+  "releaseYear": 2022,
+  "genre": "Reggaeton",
+  "tracks": ["Me Porto Bonito", "Tití Me Preguntó", "Después de la Playa"]
+}
+
+### DELETE album
+DELETE http://localhost:3000/albums/6ab3e572a6c146c62293f403 HTTP/1.1

@@ -6,8 +6,5 @@ router.get('/', (req, res) => {
 });
     
 router.use('/artists', require('./artists'));
+router.use('/albums', require('./albums'));  // 👈 agrega esta línea
 module.exports = router;
-
-// const router = require('express').Router();
-// router.get('/', (req, res) => (res.send("hello World")));
-// module.exports = router;

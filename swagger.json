@@ -5,135 +5,122 @@
     "description": "Artists Api",
     "version": "1.0.0"
   },
-  "host": "project2-laurel.onrender.com/artists",
+  "host": "project2-laurel.onrender.com",
   "basePath": "/",
-  "schemes": [
-    "https"
-  ],
+  "schemes": ["https"],
   "paths": {
     "/": {
       "get": {
         "description": "",
         "responses": {
-          "200": {
-            "description": "OK"
-          }
+          "200": { "description": "OK" }
         }
       }
     },
     "/artists/": {
       "get": {
-        "tags": [
-          "Artists"
-        ],
+        "tags": ["Artists"],
         "description": "",
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
+          "200": { "description": "OK" },
+          "500": { "description": "Internal Server Error" }
         }
       },
       "post": {
-        "tags": [
-          "Artists"
-        ],
+        "tags": ["Artists"],
         "description": "",
-        "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "500": {
-            "description": "Internal Server Error"
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "required": ["firstName", "genre", "country"],
+              "properties": {
+                "firstName": { "type": "string" },
+                "lastName": { "type": "string" },
+                "genre": { "type": "string" },
+                "country": { "type": "string" },
+                "albums": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "popularSongs": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                }
+              }
+            }
           }
+        ],
+        "responses": {
+          "201": { "description": "Created" },
+          "500": { "description": "Internal Server Error" }
         }
       }
     },
     "/artists/{id}": {
       "get": {
-        "tags": [
-          "Artists"
-        ],
+        "tags": ["Artists"],
         "description": "",
         "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
+          { "name": "id", "in": "path", "required": true, "type": "string" }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" },
+          "500": { "description": "Internal Server Error" }
         }
       },
       "put": {
-        "tags": [
-          "Artists"
-        ],
+        "tags": ["Artists"],
         "description": "",
         "parameters": [
+          { "name": "id", "in": "path", "required": true, "type": "string" },
           {
-            "name": "id",
-            "in": "path",
+            "name": "body",
+            "in": "body",
             "required": true,
-            "type": "string"
+            "schema": {
+              "type": "object",
+              "required": ["firstName", "genre", "country"],
+              "properties": {
+                "firstName": { "type": "string" },
+                "lastName": { "type": "string" },
+                "genre": { "type": "string" },
+                "country": { "type": "string" },
+                "albums": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "popularSongs": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                }
+              }
+            }
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
+          "204": { "description": "No Content" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" },
+          "500": { "description": "Internal Server Error" }
         }
       },
       "delete": {
-        "tags": [
-          "Artists"
-        ],
+        "tags": ["Artists"],
         "description": "",
         "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
+          { "name": "id", "in": "path", "required": true, "type": "string" }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
+          "204": { "description": "No Content" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" },
+          "500": { "description": "Internal Server Error" }
         }
       }
     }

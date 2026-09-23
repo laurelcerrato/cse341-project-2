@@ -1,0 +1,19 @@
+{
+  "name": "cse4341-project-2",
+  "version": "1.0.0",
+  "description": "My Second Project ",
+  "homepage": "https://github.com/laurelcerrato/cse341-project-2#readme",
+  "bugs": {
+    "url": "https://github.com/laurelcerrato/cse341-project-2/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laurelcerrato/cse341-project-2.git"
+  },
+  "author": "Laurel Cerrato",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

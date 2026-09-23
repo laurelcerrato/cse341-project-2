@@ -1,0 +1,38 @@
+GET https://project2-laurel.onrender.com/artists
+
+### LOCALHOST
+
+### Get all contacts
+GET http://localhost:3000/artists
+
+### Get contact by id
+GET http://localhost:3000/artists/6ab33105cdea1caca6857222
+
+
+### Create contact
+POST http://localhost:3000/artists HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "Shakira",
+    "lastName": "",
+    "genre": "Latin Pop",
+    "country": "Colombia",
+    "albums": ["Laundry Service", "Fijación Oral Vol. 1", "Las Mujeres Ya No Lloran"],
+    "popularSongs": ["Hips Don't Lie", "Whenever, Wherever", "Waka Waka"]
+}
+
+### PUT contact
+PUT http://localhost:3000/artists/6ab342c1861f186ce11f76f7 HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "Billie",
+    "lastName": "Eilish",
+    "genre": "Alternative Pop",
+    "country": "United States",
+    "albums": ["When We All Fall Asleep, Where Do We Go?", "Happier Than Ever", "Hit Me Hard and Soft"],
+    "popularSongs": ["Bad Guy", "Happier Than Ever", "Birds of a Feather"]
+}
+### DELETE contact
+DELETE http://localhost:3000/artists/6ab342c1861f186ce11f76f7 HTTP/1.1

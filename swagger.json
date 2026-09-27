@@ -5,9 +5,12 @@
     "description": "Artists Api",
     "version": "1.0.0"
   },
-  "host": "project2-laurel.onrender.com",
+  
   "basePath": "/",
-  "schemes": ["https"],
+  "schemes": [
+    "http",
+    "https"
+  ],
   "paths": {
     "/": {
       "get": {
